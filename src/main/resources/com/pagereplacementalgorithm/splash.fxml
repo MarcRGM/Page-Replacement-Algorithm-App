@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.splash.SplashController">
+   <children>
+      <Pane prefHeight="86.0" prefWidth="511.0" style="-fx-background-color: #273F4F;">
+         <children>
+            <Rectangle fx:id="loading" arcHeight="5.0" arcWidth="5.0" height="86.0" layoutX="-7.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="525.0" />
+            <Text fill="#1dcd9f" layoutX="74.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAGE REPLACEMENT ALGORITHM">
+               <font>
+                  <Font name="Press Start 2P Regular" size="14.0" />
+               </font>
+            </Text>
+         </children>
+      </Pane>
+   </children>
+</VBox>
