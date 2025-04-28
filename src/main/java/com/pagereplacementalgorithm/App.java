@@ -1,17 +1,15 @@
 package com.pagereplacementalgorithm;
 
-import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 
 import java.io.IOException;
 
-public class AppGUI extends Application {
+public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("Page Replacement Algorithm");
@@ -19,7 +17,7 @@ public class AppGUI extends Application {
 
 
          // Load the splash screen FXML
-        Parent splash = FXMLLoader.load(AppGUI.class.getResource("splash.fxml"));
+        Parent splash = FXMLLoader.load(App.class.getResource("splash.fxml"));
 
         Scene splashScene = new Scene(splash);
 
