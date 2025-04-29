@@ -1,4 +1,4 @@
-package com.pagereplacementalgorithm.splash;
+package com.pagereplacementalgorithm.controller;
 
 import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
