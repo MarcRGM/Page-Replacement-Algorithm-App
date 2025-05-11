@@ -1,11 +1,13 @@
 package com.pagereplacementalgorithm;
 
+import javafx.animation.PauseTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.io.IOException;
 
@@ -27,14 +29,14 @@ public class App extends Application {
         stage.initStyle(StageStyle.DECORATED);
         stage.show();
 
-        /*
+
         // Load the app FXML
-        PauseTransition delay = new PauseTransition(Duration.seconds(8)); //
+        PauseTransition delay = new PauseTransition(Duration.seconds(1)); //
         delay.setOnFinished(event -> {
             try {
-                Parent appGUI = FXMLLoader.load(AppGUI.class.getResource("wardrobe.fxml"));
+                Parent app = FXMLLoader.load(App.class.getResource("app.fxml"));
 
-                Scene mainScene = new Scene(appGUI);
+                Scene mainScene = new Scene(app);
                 stage.setScene(mainScene);
                 stage.setResizable(false);
                 stage.centerOnScreen();
@@ -43,7 +45,7 @@ public class App extends Application {
             }
         });
         delay.play();
-         */
+
     }
 
     public static void main(String[] args) {

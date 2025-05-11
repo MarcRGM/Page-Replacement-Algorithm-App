@@ -1,0 +1,41 @@
+.body {
+    -fx-font-family: "JetBrains Mono ExtraBold";
+}
+
+.vbox {
+    -fx-alignment: TOP_CENTER;
+}
+
+.label {
+    -fx-alignment: center;
+    -fx-font-size: 18;
+    -fx-text-fill: #F4EEE0;
+    -fx-font-weight: bold;
+}
+
+.bottom-label {
+    -fx-font-size: 12;
+}
+
+.algo-combo {
+    -fx-background-color: #222222;
+}
+
+.frame-slider {
+    -fx-background-color: #222222;
+}
+
+.button-vbox {
+    -fx-alignment: center;
+    -fx-spacing: 10;
+}
+
+.button {
+    -fx-background-color: #222222;
+    -fx-font-size: 10;
+    -fx-text-fill: #F4EEE0;
+    -fx-font-weight: bold;
+}
+
+
+

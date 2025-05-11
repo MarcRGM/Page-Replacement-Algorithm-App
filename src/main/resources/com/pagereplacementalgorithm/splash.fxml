@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.SplashController">
+
+<StackPane style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.SplashController">
    <children>
-      <Pane prefHeight="86.0" prefWidth="511.0" style="-fx-background-color: #273F4F;">
+      <VBox prefHeight="188.0" prefWidth="615.0">
          <children>
-            <Rectangle fx:id="loading" arcHeight="5.0" arcWidth="5.0" height="86.0" layoutX="-7.0" smooth="false" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="525.0" />
-            <Text fill="#1dcd9f" layoutX="74.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PAGE REPLACEMENT ALGORITHM">
+            <Text fx:id="titleText" fill="#1dcd9f" strokeType="OUTSIDE" strokeWidth="0.0" text="PAGE REPLACEMENT ALGORITHM" wrappingWidth="487.1519775390625">
                <font>
-                  <Font name="Press Start 2P Regular" size="14.0" />
+                  <Font name="Bebas Neue Regular" size="48.0" />
                </font>
             </Text>
          </children>
-      </Pane>
+      </VBox>
    </children>
-</VBox>
+</StackPane>

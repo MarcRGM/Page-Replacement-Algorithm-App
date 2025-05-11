@@ -1,11 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.pagereplacementalgorithm.controller.AppController">
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane prefHeight="600.0" prefWidth="600.0" styleClass="body" stylesheets="@CSS/App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.AppController">
+   <center>
+      <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #6D5D6E;" stylesheets="@CSS/App.css">
 
 </VBox>
+   </center>
+   <top>
+      <HBox prefHeight="90.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="vbox" stylesheets="@CSS/App.css">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="635.0" styleClass="text" stylesheets="@CSS/App.css" text="ALGORITHM" textFill="WHITE">
+                     <font>
+                        <Font name="Jersey 10 Regular" size="12.0" />
+                     </font></Label>
+                  <ComboBox prefHeight="27.0" prefWidth="173.0" styleClass="algo-combo" stylesheets="@CSS/App.css" />
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="vbox">
+               <children>
+                  <Label prefHeight="44.0" prefWidth="635.0" styleClass="text" stylesheets="@CSS/App.css" text="FRAMES" textFill="WHITE">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
+                  <Slider styleClass="frame-slider" stylesheets="@CSS/App.css" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding></VBox>
+            <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="button-vbox" stylesheets="@CSS/App.css">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+               <children>
+                  <Button mnemonicParsing="false" stylesheets="@CSS/App.css" text="GENERATE REFERENCE STRING" />
+                  <Button mnemonicParsing="false" stylesheets="@CSS/App.css" text="START SIMULATION" />
+               </children></VBox>
+         </children>
+      </HBox>
+   </top>
+   <bottom>
+      <HBox prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #4F4557;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox prefHeight="100.0" prefWidth="200.0" />
+            <VBox prefHeight="100.0" prefWidth="200.0" styleClass="vbox" stylesheets="@CSS/App.css">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: #393646;" styleClass="text" text="TOTAL PAGE FAULTS:" />
+                  <Label styleClass="text" stylesheets="@CSS/App.css" text="0" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="200.0" styleClass="button-vbox" stylesheets="@CSS/App.css">
+               <children>
+                  <Button mnemonicParsing="false" styleClass="restart-button" stylesheets="@CSS/App.css" text="RESTART" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>
