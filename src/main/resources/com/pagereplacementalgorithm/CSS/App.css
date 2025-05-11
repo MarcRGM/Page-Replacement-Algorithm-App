@@ -1,16 +1,20 @@
 .body {
     -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-weight: bold;
 }
 
 .vbox {
     -fx-alignment: TOP_CENTER;
 }
 
+.bottom-vbox {
+    -fx-alignment: CENTER;
+}
+
 .label {
     -fx-alignment: center;
-    -fx-font-size: 18;
+    -fx-font-size: 15;
     -fx-text-fill: #F4EEE0;
-    -fx-font-weight: bold;
 }
 
 .bottom-label {
@@ -19,10 +23,60 @@
 
 .algo-combo {
     -fx-background-color: #222222;
+    -fx-padding: 4 4;
 }
 
-.frame-slider {
+.slider {
     -fx-background-color: #222222;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+
+.slider .track {
+    -fx-background-color: #393646;
+    -fx-background-radius: 5;
+    -fx-pref-height: 6;
+}
+
+.slider .thumb {
+    -fx-background-color: #6D5D6E;
+    -fx-background-radius: 5;
+    -fx-pref-width: 14px;
+    -fx-pref-height: 14px;
+    -fx-margin: 0 auto;
+}
+
+.slider .thumb:hover {
+    -fx-background-color: #4F4557;
+    -fx-margin: 0 auto;
+}
+
+.combo-box, .list-cell {
+    -fx-text-fill: #F4EEE0;
+    -fx-font-size: 8;
+    -fx-background-color: #222222;
+    -fx-background-radius: 4;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #222222; /* list-cell background */
+    -fx-control-inner-background: #222222;
+    -fx-padding: 0;
+    -fx-border-color: transparent;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    -fx-background-color: #000000; /* Dropdown hover color */
+}
+
+.combo-box .arrow-button {
+    -fx-background-color: transparent; /* Background clear */
+}
+
+.combo-box .arrow-button .arrow {
+    -fx-background-color: #6D5D6E; /* Arrow icon color */
+    -fx-pref-width: 8px;
+    -fx-pref-height: 8px;
 }
 
 .button-vbox {
@@ -34,8 +88,47 @@
     -fx-background-color: #222222;
     -fx-font-size: 10;
     -fx-text-fill: #F4EEE0;
-    -fx-font-weight: bold;
 }
 
+.button:hover {
+    -fx-translate-y: -2px;
+}
+
+.restart-button {
+    -fx-background-color: #393646;
+}
+
+.algo-label {
+    -fx-font-size: 20;
+    -fx-background-color: #4F4557;
+    -fx-background-radius: 3;
+    -fx-padding: 2;
+}
+
+.algo-info {
+    -fx-padding: 2;
+}
+
+.ref-box {
+    -fx-alignment: center;
+    -fx-spacing: 2;
+}
+
+.number-box {
+    -fx-text-fill: #F4EEE0;
+    -fx-border-color: #6D5D6E;
+    -fx-border-width: 2;
+    -fx-background-color: #222222;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-pref-width: 35px;
+    -fx-pref-height: 35px;
+    -fx-alignment: center;
+    -fx-font-size: 14px;
+}
+
+.green-box {
+    -fx-background-color: #749F82;
+}
 
 

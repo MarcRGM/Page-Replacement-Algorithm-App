@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
@@ -11,12 +10,25 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="600.0" styleClass="body" stylesheets="@CSS/App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.AppController">
+<BorderPane maxHeight="450.0" minHeight="450.0" prefHeight="450.0" prefWidth="600.0" styleClass="body" stylesheets="@CSS/App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.AppController">
    <center>
-      <VBox alignment="CENTER" spacing="20.0" style="-fx-background-color: #6D5D6E;" stylesheets="@CSS/App.css">
+      <VBox alignment="CENTER" maxHeight="300.0" minHeight="300.0" prefHeight="300.0" style="-fx-background-color: #6D5D6E;" stylesheets="@CSS/App.css">
          <children>
-            <VBox prefHeight="100.0" prefWidth="600.0" styleClass="info-vbox" stylesheets="@CSS/App.css" />
-            <VBox prefHeight="200.0" prefWidth="100.0" />
+            <VBox maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="600.0" styleClass="info-vbox" stylesheets="@CSS/App.css">
+               <children>
+                  <HBox fx:id="refBox" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="600.0" spacing="5.0" styleClass="ref-box" stylesheets="@CSS/App.css" />
+                  <HBox maxHeight="115.0" minHeight="115.0" prefHeight="115.0" prefWidth="200.0" />
+               </children>
+            </VBox>
+            <VBox fx:id="infoVBox" maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="600.0" spacing="5.0">
+               <children>
+                  <Label fx:id="algoLabel" styleClass="algo-label" text="FIRST IN FIRST OUT (FIFO)" />
+                  <Label fx:id="algoInfo" styleClass="algo-info" text="FIFO is the most basic page replacement method. It uses a queue to monitor the order of pages loaded into memory, where the oldest page stays at the front. When replacement is needed, the page that entered first (at the front) gets removed." wrapText="true" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
          </children></VBox>
    </center>
    <top>
@@ -24,11 +36,15 @@
          <children>
             <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="vbox" stylesheets="@CSS/App.css">
                <children>
-                  <Label prefHeight="44.0" prefWidth="635.0" stylesheets="@CSS/App.css" text="ALGORITHM" textFill="WHITE">
+                  <Label prefHeight="30.0" prefWidth="189.0" stylesheets="@CSS/App.css" text="ALGORITHM" textFill="WHITE">
                      <font>
                         <Font name="Jersey 10 Regular" size="12.0" />
                      </font></Label>
-                  <ComboBox prefHeight="27.0" prefWidth="173.0" styleClass="algo-combo" stylesheets="@CSS/App.css" />
+                  <ComboBox fx:id="algoCombo" maxHeight="25.0" maxWidth="150.0" minHeight="25.0" prefHeight="25.0" prefWidth="150.0" styleClass="algo-combo" stylesheets="@CSS/App.css">
+                     <VBox.margin>
+                        <Insets top="6.0" />
+                     </VBox.margin>
+                  </ComboBox>
                </children>
                <opaqueInsets>
                   <Insets />
@@ -39,12 +55,24 @@
             </VBox>
             <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="vbox">
                <children>
-                  <Label prefHeight="44.0" prefWidth="635.0" stylesheets="@CSS/App.css" text="FRAMES" textFill="WHITE">
+                  <Label prefHeight="30.0" prefWidth="635.0" stylesheets="@CSS/App.css" text="FRAMES" textFill="WHITE">
                      <font>
                         <Font size="27.0" />
                      </font>
                   </Label>
-                  <Slider styleClass="frame-slider" stylesheets="@CSS/App.css" />
+                  <Slider fx:id="frameSlider" blockIncrement="1.0" majorTickUnit="1.0" max="5.0" maxHeight="25.0" maxWidth="106.0" min="3.0" minHeight="25.0" minWidth="100.0" minorTickCount="0" prefHeight="25.0" prefWidth="106.0" snapToTicks="true" stylesheets="@CSS/App.css">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </Slider>
+                  <Label fx:id="frameNum" prefHeight="30.0" prefWidth="635.0" styleClass="frame-num" stylesheets="@CSS/App.css" text="3" textFill="WHITE">
+                     <font>
+                        <Font size="27.0" />
+                     </font>
+                  </Label>
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
@@ -60,29 +88,16 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
                <children>
-                  <Button mnemonicParsing="false" stylesheets="@CSS/App.css" text="GENERATE REFERENCE STRING" />
-                  <Button mnemonicParsing="false" stylesheets="@CSS/App.css" text="START SIMULATION" />
+                  <Button fx:id="generateButton" mnemonicParsing="false" onMouseClicked="#generateClicked" stylesheets="@CSS/App.css" text="GENERATE REFERENCE STRING" />
+                  <Button fx:id="startButton" mnemonicParsing="false" onMouseClicked="#startClicked" stylesheets="@CSS/App.css" text="START SIMULATION" />
                </children></VBox>
          </children>
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #4F4557;" BorderPane.alignment="CENTER">
+      <HBox prefHeight="60.0" prefWidth="600.0" style="-fx-background-color: #222222;" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="100.0" prefWidth="200.0" styleClass="vbox" stylesheets="@CSS/App.css">
-               <children>
-                  <Label stylesheets="@CSS/App.css" text="PAGE REFERENCE STRING:">
-                     <styleClass>
-                        <String fx:value="label" />
-                        <String fx:value="bottom-label" />
-                     </styleClass>
-                  </Label>
-               </children>
-               <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </padding>
-            </VBox>
-            <VBox prefHeight="100.0" prefWidth="200.0" styleClass="vbox" stylesheets="@CSS/App.css">
+            <VBox prefHeight="100.0" prefWidth="300.0" styleClass="bottom-vbox" stylesheets="@CSS/App.css">
                <children>
                   <Label styleClass="bottom-label" stylesheets="@CSS/App.css" text="TOTAL PAGE FAULTS:" />
                   <Label styleClass="text" stylesheets="@CSS/App.css" text="0" />
@@ -91,15 +106,24 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="100.0" prefWidth="200.0" styleClass="vbox" stylesheets="@CSS/App.css">
+            <VBox prefHeight="100.0" prefWidth="300.0" styleClass="bottom-vbox" stylesheets="@CSS/App.css">
                <children>
-                  <Button mnemonicParsing="false" styleClass="restart-button" stylesheets="@CSS/App.css" text="RESTART" />
+                  <Label prefHeight="17.0" prefWidth="189.0" styleClass="bottom-label" stylesheets="@CSS/App.css" text="PAGE REPLACEMENT" />
+                  <Label prefHeight="17.0" prefWidth="189.0" styleClass="bottom-label" stylesheets="@CSS/App.css" text="ALGORITHM" />
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </VBox>
+            <VBox prefHeight="100.0" prefWidth="300.0" styleClass="button-vbox" stylesheets="@CSS/App.css">
+               <children>
+                  <Button fx:id="restartButton" mnemonicParsing="false" onMouseClicked="#restartClicked" styleClass="restart-button" stylesheets="@CSS/App.css" text="RESTART" />
                </children>
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <padding>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
          </children>
