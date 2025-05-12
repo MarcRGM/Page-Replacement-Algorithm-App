@@ -29,7 +29,7 @@ public class PageReplacement {
     }
 
     public static List<PageResult> runFIFO(int[] referenceString, int frameCount) {
-        List<PageResult> results = new ArrayList<>();
+        List<PageResult> results = new ArrayList<>(); // collects each result and whether there's a fault
         Queue<Integer> queue = new LinkedList<>(); // For preserving the order
         Set<Integer> set = new HashSet<>(); // For quick checking
 
@@ -53,8 +53,45 @@ public class PageReplacement {
     }
 
     public static List<PageResult> runLRU(int[] referenceString, int frameCount) {
-        List<PageResult> results = new ArrayList<>();
-        Set<Integer> set = new HashSet<>(); // For quick checking
+        List<PageResult> results = new ArrayList<>();  // collects each result and whether there's a fault
+        List<Integer> frames = new ArrayList<>(); // Simulates the frame
+        Map<Integer, Integer> lastUsed = new HashMap<>(); // Searching for LRU
+
+        for (int time = 0; time < referenceString.length; time++) {
+            int page = referenceString[time]; // Tracks when the page was last used
+            boolean isFault;
+
+            if (frames.contains(page)) {
+                isFault = false;
+            } else {
+                isFault = true;
+                if (frames.size() < frameCount) {
+                    frames.add(page);
+                } else {
+                    // Find least recently used
+                    int lruPage = frames.getFirst(); // start with the first page
+                    int minTime = lastUsed.getOrDefault(lruPage, -1); // check how many times the current page has been used
+
+                    // Checking which page has the minimum time used
+                    for (int p : frames) {
+                        int usedTime = lastUsed.getOrDefault(p, -1); // Each page getting checked
+                        if (usedTime < minTime) {
+                            lruPage = p;
+                            minTime = usedTime;
+                        }
+                    }
+                    // replace te lru
+                    int indexToReplace = frames.indexOf(lruPage);
+                    frames.set(indexToReplace, page);
+                }
+            }
+
+            // Update the last used time
+            lastUsed.put(page, time);
+
+            // List of page frame results paired with if it's a fault
+            results.add(new PageResult(new ArrayList<>(frames), isFault));
+        }
 
         return results;
     }

@@ -110,10 +110,7 @@ public class AppController implements Initializable {
                     results = PageReplacement.runFIFO(referenceString, (int) frameSlider.getValue());
                     break;
                 case LRU:
-
-                    break;
-                case OPTIMAL:
-
+                    results = PageReplacement.runLRU(referenceString, (int) frameSlider.getValue());
                     break;
                 default:
                     return;
