@@ -100,7 +100,7 @@
             <VBox prefHeight="100.0" prefWidth="300.0" styleClass="bottom-vbox" stylesheets="@CSS/App.css">
                <children>
                   <Label styleClass="bottom-label" stylesheets="@CSS/App.css" text="TOTAL PAGE FAULTS:" />
-                  <Label fx:id="numFaults" styleClass="text" stylesheets="@CSS/App.css" text="0" />
+                  <Label fx:id="numFaults" styleClass="text" stylesheets="@CSS/App.css" text="0" visible="false" />
                </children>
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />

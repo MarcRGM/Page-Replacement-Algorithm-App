@@ -98,9 +98,70 @@ public class PageReplacement {
 
     public static List<PageResult> runOptimal(int[] referenceString, int frameCount) {
         List<PageResult> results = new ArrayList<>();
-        Set<Integer> set = new HashSet<>(); // For quick checking
+        List<Integer> frames = new ArrayList<>(Collections.nCopies(frameCount, -1));
+        // Start with empty frames (-1 = empty slots)
+
+        // Iterate over the reference string
+        for (int i = 0; i < referenceString.length; i++) {
+            int page = referenceString[i];
+            boolean isFault = false;
+
+            if (!frames.contains(page)) {  // Page fault (not in frames)
+                isFault = true;
+
+                if (frames.contains(-1)) {
+                    // add the page in the first empty slot
+                    frames.set(frames.indexOf(-1), page);
+                } else {
+                    // Replace page using Optimal
+                    int pageToReplace = getOptimalPageToReplace(frames, referenceString, i); // Finds the page that has the least usage
+                    int indexToReplace = frames.indexOf(pageToReplace); // Gets the index of the page to be replaced
+                    frames.set(indexToReplace, page);  // Replace the page at the same index
+                }
+            }
+
+            // Add the result of this step
+            results.add(new PageResult(new ArrayList<>(frames), isFault));
+        }
 
         return results;
+    }
+
+    // Determines the optimal page to replace
+    private static int getOptimalPageToReplace(List<Integer> frames, int[] referenceString, int currentIndex) {
+        int farthestUse = -1;  // The farthest used page in the future
+        int pageToReplace = -1;
+
+        // Go through each page in frames and find the one that will be used the farthest into the future
+        for (int page : frames) {
+            if (page == -1) continue;  // Skip empty slots
+
+            int nextUse = getNextUse(referenceString, currentIndex, page);
+
+            // Return the page if it's not used again
+            if (nextUse == -1) {
+                return page;
+            }
+
+            // Find the page with the farthest future use
+            if (nextUse > farthestUse) {
+                farthestUse = nextUse; // Current farthest page used
+                pageToReplace = page; // Current page that is optimal to replace
+            }
+        }
+
+        return pageToReplace;
+    }
+
+    // Finds the next use of a page from a certain index in the reference string
+    private static int getNextUse(int[] referenceString, int currentIndex, int page) {
+        // Check the next occurrence of the page
+        for (int i = currentIndex + 1; i < referenceString.length; i++) {
+            if (referenceString[i] == page) {
+                return i;  // Return the index of the next occurrence
+            }
+        }
+        return -1;  // return -1 if page is not used
     }
 
 }

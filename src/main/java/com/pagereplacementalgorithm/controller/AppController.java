@@ -83,6 +83,7 @@ public class AppController implements Initializable {
 
     @FXML
     private void startClicked() {
+        numFaults.setVisible(true);
         String selectedName = algoCombo.getValue();
         AtomicInteger faultCount = new AtomicInteger();
 
@@ -112,6 +113,9 @@ public class AppController implements Initializable {
                 case LRU:
                     results = PageReplacement.runLRU(referenceString, (int) frameSlider.getValue());
                     break;
+                case OPTIMAL:
+                    results = PageReplacement.runOptimal(referenceString, (int) frameSlider.getValue());
+                    break;
                 default:
                     return;
             }
@@ -122,7 +126,7 @@ public class AppController implements Initializable {
 
                 KeyFrame keyFrame = new KeyFrame(Duration.seconds(index * delay), e -> {
                     Label label = (Label) refBox.getChildren().get(index);
-                    if (result.isFault) {
+                    if (result.isFault) { // Check whether it's a fault or not
                         faultCount.incrementAndGet(); // Increment fault count atomically
                         label.getStyleClass().add("red-box");
                         numFaults.setText(String.valueOf(faultCount.get()));  // Update fault count display
