@@ -1,5 +1,6 @@
 package com.pagereplacementalgorithm.controller;
 
+import com.pagereplacementalgorithm.PageResult;
 import com.pagereplacementalgorithm.algorithms.PageReplacement;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
@@ -15,8 +16,10 @@ import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.ResourceBundle;
+import java.util.concurrent.atomic.AtomicInteger;
 
 public class AppController implements Initializable {
 
@@ -32,7 +35,7 @@ public class AppController implements Initializable {
     private Slider frameSlider;
 
     @FXML
-    private Label frameNum, algoInfo, algoLabel;
+    private Label frameNum, algoInfo, algoLabel, numFaults;
 
     @FXML
     private Button generateButton, startButton, restartButton;
@@ -59,6 +62,7 @@ public class AppController implements Initializable {
         algoCombo.getItems().setAll(Arrays.stream(PageReplacement.algoCategories.values())
                 .map(PageReplacement.algoCategories::getDisplayName)
                 .toArray(String[]::new));
+        algoCombo.setValue(PageReplacement.algoCategories.values()[0].getDisplayName());
     }
 
     @FXML
@@ -74,11 +78,13 @@ public class AppController implements Initializable {
             refBox.getChildren().add(box);
         }
 
+        startButton.setDisable(false);
     }
 
     @FXML
     private void startClicked() {
         String selectedName = algoCombo.getValue();
+        AtomicInteger faultCount = new AtomicInteger();
 
         PageReplacement.algoCategories selectedEnum = Arrays.stream(PageReplacement.algoCategories.values())
             .filter(e -> e.getDisplayName().equals(selectedName))
@@ -89,24 +95,60 @@ public class AppController implements Initializable {
             infoVBox.setVisible(true);
             algoLabel.setText(selectedEnum.getDisplayName());
             algoInfo.setText(selectedEnum.getInfo());
+
+            // Disable buttons during animation
+            startButton.setDisable(true);
+            restartButton.setDisable(true);
+
+            int delay = 1; // seconds
+            Timeline timeline = new Timeline();
+
+            List<PageResult> results;
+
+            switch (selectedEnum) {
+                case FIFO:
+                    results = PageReplacement.runFIFO(referenceString, (int) frameSlider.getValue());
+                    break;
+                case LRU:
+
+                    break;
+                case OPTIMAL:
+
+                    break;
+                default:
+                    return;
+            }
+
+            for (int i = 0; i < refBox.getChildren().size(); i++) {
+                int index = i;
+                PageResult result = results.get(i);
+
+                KeyFrame keyFrame = new KeyFrame(Duration.seconds(index * delay), e -> {
+                    Label label = (Label) refBox.getChildren().get(index);
+                    if (result.isFault) {
+                        faultCount.incrementAndGet(); // Increment fault count atomically
+                        label.getStyleClass().add("red-box");
+                        numFaults.setText(String.valueOf(faultCount.get()));  // Update fault count display
+                    } else {
+                        label.getStyleClass().add("green-box");
+                    }
+                });
+
+                timeline.getKeyFrames().add(keyFrame);
+            }
+
+            timeline.setOnFinished(e -> restartButton.setDisable(false));
+            timeline.play();
         }
-
-        for (int i = 0; i < refBox.getChildren().size(); i++) {
-            int index = i;
-
-            KeyFrame keyFrame = new KeyFrame(Duration.seconds(i * delay), e -> {
-                Label label = (Label) refBox.getChildren().get(index);
-                label.getStyleClass().add("green-box");
-            });
-
-            timeline.getKeyFrames().add(keyFrame);
-        }
-
-        timeline.play();
-
     }
 
     @FXML
-    private void restartClicked() {}
+    private void restartClicked() {
+        restartButton.setDisable(true);
+        algoLabel.setVisible(false);
+        algoInfo.setVisible(false);
+        numFaults.setVisible(false);
+        refBox.getChildren().clear(); // clear old boxes
+    }
 
 }

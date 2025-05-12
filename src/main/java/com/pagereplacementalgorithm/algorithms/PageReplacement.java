@@ -1,5 +1,9 @@
 package com.pagereplacementalgorithm.algorithms;
 
+import com.pagereplacementalgorithm.PageResult;
+
+import java.util.*;
+
 public class PageReplacement {
 
     public enum algoCategories {
@@ -24,5 +28,42 @@ public class PageReplacement {
         }
     }
 
+    public static List<PageResult> runFIFO(int[] referenceString, int frameCount) {
+        List<PageResult> results = new ArrayList<>();
+        Queue<Integer> queue = new LinkedList<>(); // For preserving the order
+        Set<Integer> set = new HashSet<>(); // For quick checking
+
+        for (int ref : referenceString) {
+            boolean isFault = false;
+
+            if (!set.contains(ref)) { // If page is not on memory = fault
+                isFault = true;
+                if (queue.size() == frameCount) {
+                    int removed = queue.poll(); // remove oldest page
+                    set.remove(removed);
+                }
+                queue.add(ref); // add the new page
+                set.add(ref);
+            }
+            // List of page frame results paired with if it's a fault
+            results.add(new PageResult(new ArrayList<>(queue), isFault));
+        }
+
+        return results;
+    }
+
+    public static List<PageResult> runLRU(int[] referenceString, int frameCount) {
+        List<PageResult> results = new ArrayList<>();
+        Set<Integer> set = new HashSet<>(); // For quick checking
+
+        return results;
+    }
+
+    public static List<PageResult> runOptimal(int[] referenceString, int frameCount) {
+        List<PageResult> results = new ArrayList<>();
+        Set<Integer> set = new HashSet<>(); // For quick checking
+
+        return results;
+    }
 
 }
