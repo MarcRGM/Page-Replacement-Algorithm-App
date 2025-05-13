@@ -14,3 +14,12 @@ public class PageResult {
         this.isFault = isFault;
     }
 }
+
+
+
+
+
+
+
+
+
