@@ -1,21 +1,168 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.StackPane?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 
-<StackPane style="-fx-background-color: #222222;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.SplashController">
+<VBox maxHeight="210.0" maxWidth="400.0" minHeight="210.0" minWidth="400.0" prefHeight="210.0" prefWidth="400.0" styleClass="background" stylesheets="@CSS/Splash.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.SplashController">
    <children>
-      <VBox prefHeight="188.0" prefWidth="615.0">
+      <HBox maxHeight="70.0" minHeight="70.0" prefHeight="70.0" prefWidth="134.0" styleClass="label-holder" stylesheets="@CSS/Splash.css">
          <children>
-            <Text fx:id="titleText" fill="#1dcd9f" strokeType="OUTSIDE" strokeWidth="0.0" text="PAGE REPLACEMENT ALGORITHM" wrappingWidth="487.1519775390625">
-               <font>
-                  <Font name="Bebas Neue Regular" size="48.0" />
-               </font>
-            </Text>
+            <Label fx:id="label1" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="P">
+               <styleClass>
+                  <String fx:value="first-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label2" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="A">
+               <styleClass>
+                  <String fx:value="first-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label3" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="G">
+               <styleClass>
+                  <String fx:value="first-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label4" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="E">
+               <styleClass>
+                  <String fx:value="first-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
          </children>
-      </VBox>
+      </HBox>
+      <HBox maxHeight="70.0" minHeight="70.0" prefHeight="70.0" prefWidth="278.0" styleClass="label-holder" stylesheets="@CSS/Splash.css">
+         <children>
+            <Label fx:id="label5" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="R">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label6" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="E">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label7" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="P">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label8" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="L">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label9" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="A">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label10" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="C">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label11" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="E">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label12" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="M">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label13" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="E">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label14" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="N">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label15" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="T">
+               <styleClass>
+                  <String fx:value="second-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+         </children>
+      </HBox>
+      <HBox maxHeight="70.0" minHeight="70.0" prefHeight="70.0" prefWidth="278.0" styleClass="label-holder" stylesheets="@CSS/Splash.css">
+         <children>
+            <Label fx:id="label16" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="A">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label17" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="L">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label18" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="G">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label19" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="O">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label20" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="R">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label21" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="I">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label22" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="T">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label23" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="H">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+            <Label fx:id="label24" alignment="CENTER" prefHeight="53.0" prefWidth="12.0" stylesheets="@CSS/Splash.css" text="M">
+               <styleClass>
+                  <String fx:value="third-title" />
+                  <String fx:value="title" />
+               </styleClass>
+            </Label>
+         </children>
+      </HBox>
    </children>
-</StackPane>
+</VBox>

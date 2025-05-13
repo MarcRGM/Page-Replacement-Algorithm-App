@@ -86,7 +86,7 @@
 
 .button {
     -fx-background-color: #222222;
-    -fx-font-size: 10;
+    -fx-font-size: 12;
     -fx-text-fill: #F4EEE0;
 }
 
@@ -127,6 +127,19 @@
     -fx-font-size: 14px;
 }
 
+.frame-box {
+    -fx-text-fill: #F4EEE0;
+    -fx-border-color: #6D5D6E;
+    -fx-background-color: #222222;
+    -fx-alignment: center;
+    -fx-font-weight: bold;
+    -fx-min-width: 25;
+    -fx-min-height: 25;
+    -fx-max-width: 25;
+    -fx-max-height: 25;
+    -fx-font-size: 12;
+}
+
 .green-box {
     -fx-background-color: #749F82;
 }
@@ -135,4 +148,39 @@
     -fx-background-color: #C96868;
 }
 
+/* Steps beside the frame set */
+.step-box {
+    -fx-alignment: center;
+    -fx-background-color: #F4EEE0;
+    -fx-background-radius: 3;
+    -fx-text-fill: #222222;
+    -fx-border-radius: 3;
+    -fx-font-weight: bold;
+    -fx-min-width: 30;
+    -fx-min-height: 30;
+    -fx-max-width: 30;
+    -fx-max-height: 30;
+    -fx-font-size: 16;
+}
+
+/* Overall frames container layout */
+.frames-container {
+    -fx-pref-width: 750;
+    -fx-pref-height: 165;
+    -fx-alignment: CENTER;
+    -fx-spacing: 15; /* spacing between VBox columns */
+}
+
+/* VBox (each column) */
+.frames-column {
+    -fx-pref-width: 120;
+    -fx-alignment: CENTER;
+    -fx-padding: 0 10 0 0;
+}
+
+/* Each row inside VBox (HBox holding frame boxes) */
+.frame-row {
+    -fx-spacing: 2; /* spacing between frames in a row */
+    -fx-pref-height: 41; /* height of each row */
+}
 

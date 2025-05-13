@@ -97,7 +97,7 @@ public class PageReplacement {
     }
 
     public static List<PageResult> runOptimal(int[] referenceString, int frameCount) {
-        List<PageResult> results = new ArrayList<>();
+        List<PageResult> results = new ArrayList<>(); // collects each result and whether there's a fault
         List<Integer> frames = new ArrayList<>(Collections.nCopies(frameCount, -1));
         // Start with empty frames (-1 = empty slots)
 
@@ -106,7 +106,7 @@ public class PageReplacement {
             int page = referenceString[i];
             boolean isFault = false;
 
-            if (!frames.contains(page)) {  // Page fault (not in frames)
+            if (!frames.contains(page)) {  // Page fault checking
                 isFault = true;
 
                 if (frames.contains(-1)) {
@@ -132,7 +132,7 @@ public class PageReplacement {
         int farthestUse = -1;  // The farthest used page in the future
         int pageToReplace = -1;
 
-        // Go through each page in frames and find the one that will be used the farthest into the future
+        // Go through each page in frames and find the one that will be used the farthest
         for (int page : frames) {
             if (page == -1) continue;  // Skip empty slots
 

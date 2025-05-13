@@ -31,7 +31,7 @@ public class App extends Application {
 
 
         // Load the app FXML
-        PauseTransition delay = new PauseTransition(Duration.seconds(1)); //
+        PauseTransition delay = new PauseTransition(Duration.seconds(5)); //
         delay.setOnFinished(event -> {
             try {
                 Parent app = FXMLLoader.load(App.class.getResource("app.fxml"));

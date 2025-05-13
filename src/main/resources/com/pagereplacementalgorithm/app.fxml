@@ -10,17 +10,20 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="450.0" minHeight="450.0" prefHeight="450.0" prefWidth="600.0" styleClass="body" stylesheets="@CSS/App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.AppController">
+<BorderPane maxHeight="600.0" maxWidth="750.0" minHeight="600.0" minWidth="750.0" prefHeight="600.0" prefWidth="750.0" styleClass="body" stylesheets="@CSS/App.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.pagereplacementalgorithm.controller.AppController">
    <center>
-      <VBox alignment="CENTER" maxHeight="300.0" minHeight="300.0" prefHeight="300.0" style="-fx-background-color: #6D5D6E;" stylesheets="@CSS/App.css">
+      <VBox alignment="CENTER" maxHeight="450.0" minHeight="450.0" prefHeight="450.0" style="-fx-background-color: #6D5D6E;" stylesheets="@CSS/App.css">
          <children>
-            <VBox maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="600.0" styleClass="info-vbox" stylesheets="@CSS/App.css">
+            <VBox maxHeight="330.0" maxWidth="750.0" minHeight="330.0" minWidth="750.0" prefHeight="330.0" prefWidth="750.0" styleClass="info-vbox" stylesheets="@CSS/App.css">
                <children>
-                  <HBox fx:id="refBox" maxHeight="35.0" minHeight="35.0" prefHeight="35.0" prefWidth="600.0" spacing="5.0" styleClass="ref-box" stylesheets="@CSS/App.css" />
-                  <HBox maxHeight="115.0" minHeight="115.0" prefHeight="115.0" prefWidth="200.0" />
+                  <HBox fx:id="refBox" maxHeight="35.0" maxWidth="750.0" minHeight="35.0" minWidth="750.0" prefHeight="35.0" prefWidth="750.0" spacing="5.0" styleClass="ref-box" stylesheets="@CSS/App.css" />
+                  <HBox fx:id="framesContainer" maxHeight="295.0" maxWidth="750.0" minHeight="295.0" minWidth="750.0" prefHeight="295.0" prefWidth="750.0">
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding></HBox>
                </children>
             </VBox>
-            <VBox fx:id="infoVBox" maxHeight="150.0" minHeight="150.0" prefHeight="150.0" prefWidth="600.0" spacing="5.0" visible="false">
+            <VBox fx:id="infoVBox" maxHeight="120.0" minHeight="120.0" prefHeight="120.0" prefWidth="600.0" spacing="5.0" visible="false">
                <children>
                   <Label fx:id="algoLabel" styleClass="algo-label" text="FIRST IN FIRST OUT (FIFO)" />
                   <Label fx:id="algoInfo" styleClass="algo-info" text="FIFO is the most basic page replacement method. It uses a queue to monitor the order of pages loaded into memory, where the oldest page stays at the front. When replacement is needed, the page that entered first (at the front) gets removed." wrapText="true" />
@@ -32,9 +35,9 @@
          </children></VBox>
    </center>
    <top>
-      <HBox prefHeight="90.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox maxWidth="750.0" minWidth="750.0" prefHeight="90.0" prefWidth="750.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="vbox" stylesheets="@CSS/App.css">
+            <VBox maxWidth="250.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: #393646;" styleClass="vbox" stylesheets="@CSS/App.css">
                <children>
                   <Label prefHeight="30.0" prefWidth="189.0" stylesheets="@CSS/App.css" text="ALGORITHM" textFill="WHITE">
                      <font>
@@ -53,7 +56,7 @@
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding>
             </VBox>
-            <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="vbox">
+            <VBox maxWidth="250.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: #393646;" styleClass="vbox">
                <children>
                   <Label prefHeight="30.0" prefWidth="635.0" stylesheets="@CSS/App.css" text="FRAMES" textFill="WHITE">
                      <font>
@@ -77,7 +80,7 @@
                <padding>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </padding></VBox>
-            <VBox prefHeight="90.0" prefWidth="200.0" style="-fx-background-color: #393646;" styleClass="button-vbox" stylesheets="@CSS/App.css">
+            <VBox maxWidth="250.0" minWidth="250.0" prefHeight="90.0" prefWidth="250.0" style="-fx-background-color: #393646;" styleClass="button-vbox" stylesheets="@CSS/App.css">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
