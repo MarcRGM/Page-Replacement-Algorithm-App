@@ -133,6 +133,8 @@
     -fx-background-color: #222222;
     -fx-alignment: center;
     -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
     -fx-min-width: 25;
     -fx-min-height: 25;
     -fx-max-width: 25;
@@ -182,5 +184,6 @@
 .frame-row {
     -fx-spacing: 2; /* spacing between frames in a row */
     -fx-pref-height: 41; /* height of each row */
+    -fx-alignment: CENTER-LEFT;
 }
 

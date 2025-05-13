@@ -11,4 +11,6 @@ module com.pagereplacementalgorithm {
     exports com.pagereplacementalgorithm;
     exports com.pagereplacementalgorithm.controller;
     opens com.pagereplacementalgorithm.controller to javafx.fxml;
+    exports com.pagereplacementalgorithm.algorithms;
+    opens com.pagereplacementalgorithm.algorithms to javafx.fxml;
 }

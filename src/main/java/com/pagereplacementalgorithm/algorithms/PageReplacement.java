@@ -1,7 +1,5 @@
 package com.pagereplacementalgorithm.algorithms;
 
-import com.pagereplacementalgorithm.PageResult;
-
 import java.util.*;
 
 public class PageReplacement {

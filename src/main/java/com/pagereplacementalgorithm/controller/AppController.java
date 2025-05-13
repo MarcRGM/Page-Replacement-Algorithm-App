@@ -1,6 +1,6 @@
 package com.pagereplacementalgorithm.controller;
 
-import com.pagereplacementalgorithm.PageResult;
+import com.pagereplacementalgorithm.algorithms.PageResult;
 import com.pagereplacementalgorithm.algorithms.PageReplacement;
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;

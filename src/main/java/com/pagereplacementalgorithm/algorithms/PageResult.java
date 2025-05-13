@@ -1,4 +1,4 @@
-package com.pagereplacementalgorithm;
+package com.pagereplacementalgorithm.algorithms;
 
 import java.util.List;
 
