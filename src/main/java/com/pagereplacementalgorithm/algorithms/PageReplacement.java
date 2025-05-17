@@ -28,7 +28,7 @@ public class PageReplacement {
 
     public static List<PageResult> runFIFO(int[] referenceString, int frameCount) {
         List<PageResult> results = new ArrayList<>(); // collects each result and whether there's a fault
-        Queue<Integer> queue = new LinkedList<>(); // For preserving the order
+        Queue<Integer> queue = new LinkedList<>(Collections.nCopies(frameCount, -1)); // For preserving the order
         Set<Integer> set = new HashSet<>(); // For quick checking
 
         for (int ref : referenceString) {
@@ -52,7 +52,7 @@ public class PageReplacement {
 
     public static List<PageResult> runLRU(int[] referenceString, int frameCount) {
         List<PageResult> results = new ArrayList<>();  // collects each result and whether there's a fault
-        List<Integer> frames = new ArrayList<>(); // Simulates the frame
+        List<Integer> frames = new ArrayList<>(Collections.nCopies(frameCount, -1)); // Simulates the frame
         Map<Integer, Integer> lastUsed = new HashMap<>(); // Searching for LRU
 
         for (int time = 0; time < referenceString.length; time++) {
@@ -64,7 +64,10 @@ public class PageReplacement {
             } else {
                 isFault = true;
                 if (frames.size() < frameCount) {
-                    frames.add(page);
+                    if (frames.contains(-1)) {
+                        // add the page in the first empty slot
+                        frames.set(frames.indexOf(-1), page);
+                    }
                 } else {
                     // Find least recently used
                     int lruPage = frames.getFirst(); // start with the first page

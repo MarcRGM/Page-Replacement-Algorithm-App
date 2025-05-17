@@ -1,5 +1,5 @@
 .body {
-    -fx-font-family: "JetBrains Mono ExtraBold";
+    -fx-font-family: "JetBrains Mono ExtraBold", "JetBrains Mono", "Courier New", monospace;;
     -fx-font-weight: bold;
 }
 
